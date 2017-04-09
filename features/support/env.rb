@@ -3,6 +3,11 @@ require "Capybara/cucumber"
 require "rspec"
 require 'selenium-webdriver'
 require 'uri'
+require 'faraday'
+require 'faraday_middleware'
+require 'json'
+require 'multi_xml'
+require "rubygems"
 
 # Tell FireFox to use proxy settings
 if ENV['http_proxy']
