@@ -8,7 +8,6 @@ Feature: Use Edmunds The_Vehicle_API to test the following scenarios using Ruby,
       And vehicle make "<make>"
       And vehicle submodel "<submodel>"
     Then Make an API Call
-    # Then Make an API Call with state "<state>" year "<year>" make "<make>" submodel "<submodel>"
 Examples:
     | state | year  | make  | submodel  |
     | new   | 2014  | audi  | a5        |

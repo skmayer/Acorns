@@ -2,7 +2,6 @@
 class VehicleObject
 
 	def initialize()
-	  puts "This object was initialized!"
 	end
 
 	def get_state

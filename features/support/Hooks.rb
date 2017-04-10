@@ -1,5 +1,6 @@
 Before do
   puts "Before class"
+  $addressObject = AddressObject.new()
   $vehicleObject = VehicleObject.new()
 end
 
