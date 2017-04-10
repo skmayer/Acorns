@@ -8,7 +8,7 @@ require 'faraday_middleware'
 require 'json'
 require 'multi_xml'
 require "rubygems"
-
+    
 # Tell FireFox to use proxy settings
 if ENV['http_proxy']
   Capybara.register_driver :selenium do |app|

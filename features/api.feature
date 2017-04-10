@@ -3,8 +3,13 @@ Feature: Use Edmunds The_Vehicle_API to test the following scenarios using Ruby,
   Scenario Outline: Search for the make, model, year of your car 
   and verify the response status and that the response body contains the results that match your criteria.
  
-    # Then Make API Call with state "new" and year "2014" and submodel "a5"
-    Then Make API Call with make "<make>" and state "<state>" and year "<year>" and submodel "<submodel>"
+    Given vehicle state "<state>"
+      And vehicle year "<year>"
+      And vehicle make "<make>"
+      And vehicle submodel "<submodel>"
+    Then Make an API Call
+    # Then Make an API Call with state "<state>" year "<year>" make "<make>" submodel "<submodel>"
 Examples:
-    | make  | state | year  | submodel  |
-    | audi  | new   | 2014  | a5        |
+    | state | year  | make  | submodel  |
+    | new   | 2014  | audi  | a5        |
+    | used  | 2012  | honda | accord    | 
