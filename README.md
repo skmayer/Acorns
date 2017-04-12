@@ -32,11 +32,16 @@ Or directly install cucumber:
             -edmunds.feature    #Cucumber BDD file that tests the Edmunds API
           -ui
             -redfin.feature     #Cucumber BDD file that tests Redfin website
-          -step_definitions
-            -api                #contains the step definiftions
+          -step_definitions     #contains all the step definiftions and logic
+            -api                
               -edmunds.rb
             -ui
-              -redfin.rb
+              -home_page
+                home_steps.rb
+              -login_page
+                login_steps.rb
+              -results_page
+                -results_steps.rb
           -support
             -classes            #helper object files
             -env.rb             #sets up all the gems and the browser
