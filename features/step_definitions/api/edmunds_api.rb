@@ -19,7 +19,7 @@ Given(/^vehicle submodel "([^"]*)"$/) do |submodel|
 end
 
 # Then(/^Make an API Call with state "([^"]*)" year "([^"]*)" make "([^"]*)" submodel "([^"]*)"$/) do |state, year, make, submodel|
-Then(/^Make an API Call$/) do
+Then(/^Make an API Call to Edmunds$/) do
   #Store paramenters in proper vairables
   state = $vehicleObject.get_state
   year = $vehicleObject.get_year
@@ -27,6 +27,7 @@ Then(/^Make an API Call$/) do
   submodel = $vehicleObject.get_submodel
 
   #Execute REST call using Faraday
+  puts "\nMake API call to Edmunds Vehicle API: " + "https://api.edmunds.com/api/vehicle/v2/" + make + '/' + submodel
   response = Faraday.get do |req|
     req.url 'https://api.edmunds.com/api/vehicle/v2/' + make + '/' + submodel
     req.params['state']  = state

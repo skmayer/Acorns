@@ -1,17 +1,9 @@
 ## Install Ruby
 
-### JRuby
-
-Download and extract JRuby.
-Move it under your folder.
-
-    mv ~/Downloads/jruby-1.7.12/ jruby
-    export PATH=jruby/bin:$PATH
-    jruby --version
+    Install Homebrew: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    Install Ruby: brew install ruby
 
 ### OS X / Linux
-
-Follow instructions on http://rvm.io/
 
 ## Install Cucumber
 
@@ -21,27 +13,39 @@ If you're using rvm-installed ruby:
     bundle install
     cucumber --version
 
-If you're using system ruby:
+Or directly install cucumber:
 
-    sudo gem install bundler
-    sudo bundle install
-    cucumber --version
+    gem install cucumber
 
-If you're using JRuby:
+## To run the code
 
-    jruby -S gem install bundler
-    jruby -S bundle install
-    jruby -S cucumber --version
+    # OS X
+    Open Terminal
+    cd /acorns  #open acorns folder
+    $ cucumber  #this will kick start all the cucumber feature files
 
-## If you're behind a proxy
+## Folder Structure
 
-Tell Selenium/Firefox to use it:
+    -Acorns
+        -failed_png             #failed screenshot container
+        -success_png            #passed screenshot container
+        -features
+          -api
+            -edmunds.feature    #Cucumber BDD file that tests the Edmunds API
+          -ui
+            -redfin.feature     #Cucumber BDD file that tests Redfin website
+          -step_definitions
+            -api                #contains the step definiftions
+              -edmunds.rb
+            -ui
+              -redfin.rb
+          -support
+            -classes            #helper object files
+            -env.rb             #sets up all the gems and the browser
+            -Hooks.rb           #sets the Before & After scenario behavir
 
-    # Linux/OS X
-    export http_proxy=http://your.proxy:8080
+  ## Notes
 
-    # Windows
-    SET http_proxy=http://your.proxy:8080
-
-If you have a separate proxy for https, define
-the `https_proxy` environment variable as well.
+    -Edumunds Vehicle API only allows 25 calls per day. So the calls will fail once you've reached that limit.
+    -Successful/Failed tests will create a screenshot and save in the respective folder under \Acorns.
+  

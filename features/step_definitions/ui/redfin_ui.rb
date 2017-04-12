@@ -1,27 +1,28 @@
-When(/^I go to Redfin$/) do
-  visit "https://www.redfin.com/"
-  # fill_in 'searchInputBox', with: '90630'
+When(/^I go to "([^"]*)"$/)  do |url|
+  url = "#{url}"
+  puts "\nOpening URL: " + url
+  visit url
 end
 
-Then(/^I will click the Sign In button$/) do
-    all(:xpath, '//*[@id="userMenu"]/div[1]/div/div/div/a[1]/span')[0].click
+Then(/^Open the Sign In modal$/) do
+  puts "\nOpen Sign In modal"
+  all(:xpath, '//*[@id="userMenu"]/div[1]/div/div/div/a[1]/span')[0].click
 end
 
 Then(/^Enter Username "([^"]*)"$/)  do |username|
   username = "#{username}"
-    fill_in 'emailInput', with: username
+  puts "\nEntering username: " + username
+  fill_in 'emailInput', with: username
 end
 
 Then(/^Enter Password "([^"]*)"$/)  do |password|
   password = "#{password}"
+  puts "\nEntering password: " + password
   fill_in 'passwordInput', with: password
 end
 
-Then(/^Enter Invalid Password$/) do
-  fill_in 'passwordInput', with: 'wrongPassword'
-end
-
 Then(/^Click Sign In$/) do
+  puts "\nClick Sign In button"
   click_button 'Sign In'
 end
 
@@ -66,6 +67,7 @@ end
 
 Then(/^Verify Address$/) do
   #Verify all the entered filters are displayed on the results page
+  puts "\nVerify the Address Filter worked"
   expect(page).to have_xpath("//h1", :text => $addressObject.get_street())
   expect(page).to have_xpath("//h1", :text => $addressObject.get_city())
   expect(page).to have_xpath("//h1", :text => $addressObject.get_state())
