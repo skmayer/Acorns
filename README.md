@@ -3,8 +3,6 @@
     Install Homebrew: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     Install Ruby: brew install ruby
 
-### OS X / Linux
-
 ## Install Cucumber
 
 If you're using rvm-installed ruby:
@@ -21,7 +19,7 @@ Or directly install cucumber:
 
     # OS X
     Open Terminal
-    cd /acorns  #open acorns folder
+    $ cd /acorns  #open acorns folder
     $ cucumber  #this will kick start all the cucumber feature files
 
 ## Folder Structure
